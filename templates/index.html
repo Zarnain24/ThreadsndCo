@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Threads and Co.</title>
+  <!-- Link to Google Fonts API for Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <!-- Link to your existing stylesheet -->
+  <link rel="stylesheet" href="{% static '/css/styles.css' %}">
+</head>
+
+<body>
+
+  <header>
+    <h1 class="store-title">Threads and Co.</h1>
+  </header>
+
+  <nav>
+    <a href="{% url 'index' %}">Home</a>
+    <a href="{% url 'about' %}">About</a>
+    <a href="{% url 'contact' %}">Contact</a>
+    <a href="{% url 'cart' %}">Cart</a>
+  </nav>
+
+  <div class="content" id="homePage">
+    <h2>Winter Sale!</h2>
+    <p>Find The Best Fashion Style For You</p>
+
+    <div class="product-container">
+      {% for p in Products %}
+      <div class="product">
+        <img src="/{{p.image.name}}" alt="{{p.ProductName}}">
+        <h3>{{p.ProductName}}</h3>
+        {% if p.Description %}
+          <p>{{ p.Description }}</p>
+        {% else %}
+          <p>Quality craftsmanship meets contemporary design for the modern wardrobe.</p>
+        {% endif %}
+        <form class="add-to-cart-form">
+          <input type="text" value="{{p.ProductName}}" style="display: none;" class="product-name" name="product_name">
+          <p class="product-price">${{p.Price}}</p>
+          <input type="number" value="{{p.Price}}" style="display: none;" class="product-price-input" name="product_price">
+          
+          <div class="product-controls">
+            <div class="quantity-section">
+              <label for="qty">Qty:</label>
+              <input type="number" value="1" min="1" max="10" class="quantity-input" name="quantity">
+            </div>
+            <button type="button" onclick="sendData(this)" class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </form>
+      </div>
+      {% endfor %}
+    </div>
+    
+    <!-- Slider container -->
+    <div class="slider-container">
+      <!-- Existing slider content for the home page -->
+      <div class="mySlides">
+        <img src="{% static '/images/polo.jpg' %}" alt="Polo" class="slideshow-img">
+      </div>
+
+      <div class="mySlides">
+        <img src="{% static '/images/dress.jpg' %}" alt="Dress" class="slideshow-img">
+      </div>
+
+      <div class="mySlides">
+        <img src="{% static '/images/tee.jpg' %}" alt="Tee" class="slideshow-img">
+      </div>
+
+      <!-- Navigation buttons for the slider -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+  </div>
+
+
+  <footer>
+    &copy; 2023 Threads and Co.
+  </footer>
+
+  <script src="{% static '/js/script.js' %}"></script>
+</body>
+
+</html>

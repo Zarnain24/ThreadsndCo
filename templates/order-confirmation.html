@@ -1,0 +1,72 @@
+<!-- order-confirmation.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+
+    <header>
+        <h1 class="store-title">Threads and Co.</h1>
+    </header>
+
+    <div class="content">
+        <div class="order-details">
+        <h2>Order placed successfully!</h2>
+
+        <!-- Display customer details -->
+        <div class="customer-details">
+            <h3>Customer Details:</h3>
+                <p><strong>Name:</strong> {{ customer.CustomerName }}</p>
+                <p><strong>Contact:</strong> {{ customer.CustomerContact }}</p>
+                <p><strong>Address:</strong> {{ customer.CustomerAddress }}</p>
+        </div>
+
+        <!-- Display ordered items -->
+        <div class="order-items">
+            <h3>Ordered Items:</h3>
+            <table id="orderTable">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                    <tr>
+                        <td>{{ item.ProductName }}</td>
+                        <td>{{ item.Quantity }}</td>
+                        <td>${{ item.TotalPrice|floatformat:2 }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Display total amount -->
+        <div class="order-summary">
+            <h3><strong>Overall Total:</strong> ${{ total|floatformat:2 }}</h3>
+
+        <!-- Continue Shopping button -->
+        <button onclick="continueShopping()">Continue Shopping</button>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2023 Threads and Co.
+    </footer>
+
+    <script src="{% static '/js/script.js' %}"></script>
+
+</body>
+
+</html>

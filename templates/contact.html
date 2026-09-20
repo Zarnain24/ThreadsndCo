@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Threads and Co.</title>
+        <!-- Link to Google Fonts API for Roboto -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+        <!-- Link to your existing stylesheet -->
+        <link rel="stylesheet" href="{% static '/css/styles.css' %}">
+      </head>
+      
+<body>
+    <header>
+        <h1 class="store-title">Threads and Co.</h1>
+    </header>
+    <nav>
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'contact' %}">Contact</a>
+        <a href="{% url 'cart' %}">Cart</a>
+      </nav>
+      
+    <div class="content">
+      <h2>Contact Us:</h2>
+    <p>Have questions or suggestions? Feel free to reach out to us. We value your feedback!</p>
+
+    <!-- Social media and contact information with logos -->
+    <div class="contact-info">
+      <!-- Facebook -->
+      <div class="social-media">
+        <img src="{% static '/images/facebook2.svg' %}" alt="Facebook Logo" class="social-logo" width="55" height="55">
+        <p>Visit our Facebook Page "THREADS AND CO. OFFICIAL"</p>
+      </div>
+
+      <!-- Instagram -->
+      <div class="social-media">
+        <img src="{% static '/images/instagram.svg' %}" alt="Instagram Logo" class="social-logo" width="50" height="50">
+        <p>Follow us on Instagram "threadsandco.official".</p>
+      </div>
+
+      <!-- Helpline Number -->
+      <div class="contact-number">
+        <img src="{% static '/images/phone.svg' %}" alt="Helpline Logo" class="contact-logo" width="50" height="50">
+        <p>Helpline Number: 021-111-456-789</p>
+      </div>
+
+      <!-- WhatsApp Number -->
+      <div class="contact-number">
+        <img src="{% static '/images/whatsapp.svg' %}" alt="WhatsApp Logo" class="contact-logo" width="50" height="50">
+        <p>WhatsApp Number: +92-331-3210639</p>
+      </div>
+    </div>
+    </div>
+    
+  <footer>
+    &copy; 2023 Threads and Co.
+  </footer>
+
+</body>
+</html>

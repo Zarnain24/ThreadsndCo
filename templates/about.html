@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Threads and Co.</title>
+        <!-- Link to Google Fonts API for Roboto -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+        <!-- Link to your existing stylesheet -->
+        <link rel="stylesheet" href="{% static '/css/styles.css' %}">
+      </head>      
+<body>
+    <header>
+        <h1 class="store-title">Threads and Co.</h1>
+    </header>
+    <nav>
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'contact' %}">Contact</a>
+        <a href="{% url 'cart' %}">Cart</a>
+    </nav>
+    
+    <div class="content">
+      <h2>About Threads and Co.</h2>
+    <p>Welcome to Threads and Co.! We are a leading fashion retailer dedicated to providing you with the latest trends and high-quality clothing. Our story began with a passion for style and a commitment to delivering an exceptional shopping experience.</p>
+
+    <p>At Threads and Co., we curate a diverse collection of clothing that caters to various styles and preferences. From casual wear to formal attire, we have something for every occasion. Our team of designers works tirelessly to stay ahead of the fashion curve, ensuring that you can express your unique personality through our clothing.</p>
+
+    <p>Quality is at the heart of everything we do. We source premium fabrics and materials to create garments that not only look good but also stand the test of time. Each piece in our collection reflects our dedication to craftsmanship and attention to detail.</p>
+
+    <p>Customer satisfaction is our priority. We strive to provide excellent customer service, making your shopping experience enjoyable and hassle-free. Whether you're looking for a wardrobe refresh or a special outfit, Threads and Co. is your go-to destination for fashion that speaks to you.</p>
+
+    <p>Thank you for choosing Threads and Co. as your fashion partner. Join us on this style journey, and let's make every outfit a statement!</p>
+    </div>
+    
+    <footer>
+        &copy; 2023 Threads and Co.
+    </footer>
+    
+</body>
+</html>
